@@ -1,0 +1,17 @@
+config:
+  target: http://fp-mig-dev.fisgroup.ru:8080/web/FormRunner/
+  # Load the Playwright engine:
+  phases:
+    - duration: 20
+      arrivalRate: 1
+      rampTo: 1
+      name: test
+  engines:
+    playwright:
+      launchOptions:
+        headless: true
+  # Path to JavaScript file that defines Playwright test functions
+  processor: "./tests/artillery/artilleryScripts.ts"
+scenarios:
+  - engine: playwright
+    testFunction: "artilleryScripts"
